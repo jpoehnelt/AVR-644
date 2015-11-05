@@ -11,7 +11,7 @@
 #ifndef F_CPU
 #error F_CPU must be defined
 #else
-#define BAUD_FREQ ((F_CPU/(BAUD*16UL))-1)
+#define BAUD_FREQ ((F_CPU + BAUD * 8L) / (BAUD * 16L) - 1)
 #endif
 
 #ifndef BAUD
@@ -20,6 +20,7 @@
 
 #ifndef   _AVR_IO_H_
 #include  <avr/io.h>
+
 #endif
 
 void uart_init();

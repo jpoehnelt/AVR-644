@@ -17,6 +17,8 @@
 #endif
 #include <avr/io.h>
 
+#include <util/atomic.h>
+
 #ifndef _AVR_IO_H
 #include <avr/io.h>
 #endif

@@ -15,12 +15,13 @@
 #include <avr/interrupt.h>
 //#include <avr/eeprom.h>
 //#include <avr/pgmspace.h>
-//#include <avr/sleep.h>
+#include <avr/sleep.h>
 //#include <avr/wdt.h>
 //#include <avr/power.h>
 
 // Modules
 #include "framework/uart.h"
 #include "framework/timer.h"
+#include "framework/tasks.h"
 //#include "macros.h"
 
