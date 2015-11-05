@@ -62,7 +62,7 @@ HEADERS=$(SOURCES:.c=.h)
 # CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I. -I$(LIBDIR)
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD)
 # CFLAGS = -Os -g -std=gnu99 -Wall
-CFLAGS = -Os -Wall
+CFLAGS = -Os -Wall -std=c99
 ## Use short (8-bit) data types
 # CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 ## Splits up object files per function
