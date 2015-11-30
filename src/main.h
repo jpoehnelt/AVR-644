@@ -23,5 +23,8 @@
 #include "framework/uart.h"
 #include "framework/timer.h"
 #include "framework/tasks.h"
+#include "framework/spi.h"
+#include "framework/sd.h"
+
 //#include "macros.h"
 

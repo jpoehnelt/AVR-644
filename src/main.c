@@ -3,31 +3,39 @@
 //
 
 #include "main.h"
+
 void blink();
 
 int main() {
-    printf("Initializing...\n");
-
+    DDRB |= (1 << 4);
     timer_init();
     uart_init();
-
+    spi_init();
+    sei();
+    _delay_ms(1000);
     printf("Done Initializing!\n");
-    // init led pin as out
-    LED_PORT_DIR = 1;
 
-    // repeat task every 2 seconds forever
-    repeated(blink, NULL, 2000, 1);
 
-    // run tasks, sleep, run tasks, sleep, forever
+    sd_init(DDRB, 5);
+
+
     while (1) {
-        run_tasks();
-        sleep_mode();
-        sleep_cpu();
-    }
+        printf("Trying to init sd\n");
+        uint8_t i = sd_command(0x40, {0, 0, 0, 0} ,0x95);
 
-    return 0;
+        if (i == 1) {
+            printf("SD in Idle State\n");
+        }
+        else {
+            printf("SD not in Idle State, i: %u\n", i);
+        }
+
+        _delay_ms(5000);
+
+    }
 }
 
 void blink() {
-    TOGGLE(LED_PORT, LED_PIN);
+    printf("Blink\n");
+//    TOGGLE(LED_PORT, LED_PIN);
 }
